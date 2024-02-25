@@ -1,10 +1,13 @@
 const process = require('process');
+const execSync = require('child_process').execSync;
 
 
 async function main() {
   console.log(process.argv[2]);
+  const output = execSync('ls', { encoding: 'utf-8' })
 
-  return 'this-is-a-test'
+  console.log('Output was:\n', output);
+
 }
 
-return main()
+main()
