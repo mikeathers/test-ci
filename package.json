@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "jest": "^29.7.0",
+    "jest-mock": "^29.7.0",
+    "jest-mock-extended": "^3.0.5"
+  }
+}
