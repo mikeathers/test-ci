@@ -3,9 +3,9 @@ import {readStackNameFromFile} from "./helpers";
 
 async function main() {
   const stackName = await readStackNameFromFile('stack-name.txt')
-
+console.log({stackName})
   execSync(
-      `cd deployment && npx cdk --context stage=dev --force --app "ts-node ./src/deployment.ts" destroy ${stackName}`,
+      `npx cdk --context stage=dev --force --app "ts-node ./src/deployment.ts" destroy ${stackName}`,
       {encoding: 'utf-8'},
   )
 }
