@@ -3,7 +3,7 @@ import {readStackNameFromFile} from "./helpers";
 
 async function main() {
   console.log('process', process.env)
-  const stackName = process.env.BRANCH_NAME
+  const stackName = process.env.normalised_branch_name
   console.log({stackName})
 
   // execSync(
