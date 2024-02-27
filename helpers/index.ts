@@ -11,10 +11,6 @@ export const writeStackNameToFile = (stackName: string) => {
 
     const rootLs = execSync(`ls`, {encoding: 'utf-8'})
     console.log({rootLs})
-    const helpersLs = execSync(`cd src/helpers && ls`, {encoding: 'utf-8'})
-    console.log({helpersLs})
-    const scriptsLs = execSync(`cd scripts && ls`, {encoding: 'utf-8'})
-    console.log({scriptsLs})
 }
 
 export const readStackNameFromFile = async (fileName: string) => {
