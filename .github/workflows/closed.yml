@@ -53,8 +53,12 @@ jobs:
         run: |
           echo "normalised_branch_name=$(echo "${{ github.event.ref || github.event.pull_request.head.ref }}" | sed -e 's/refs\/heads\///g' | tr '[:upper:]' '[:lower:]' | sed -e 's/\//-/g')" >> $GITHUB_ENV
 
+
+
       - run: echo ${{ github.event.inputs.normalised-branch-name }}
-      - run: echo ${{ github.event.inputs.normalised-branch-name }}
+
+
+      - run: echo ${{github.ref_name}}
 
 #  destroy-2:
 #    name: 📋 Destroy
