@@ -2,8 +2,8 @@ import {execSync} from 'child_process'
 import {readStackNameFromFile} from "./helpers";
 
 async function main() {
-  console.log('process', process.argv)
-  const stackName = process.argv[2]
+  console.log('process', process.env)
+  const stackName = process.env.BRANCH_NAME
   console.log({stackName})
 
   // execSync(
