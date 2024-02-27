@@ -60,6 +60,8 @@ jobs:
 
       - run: echo ${{github.ref_name}}
 
+      - run: npx ts-node destroy-stack-on-merge.ts ${{ github.event.inputs.normalised-branch-name }}
+
 #  destroy-2:
 #    name: 📋 Destroy
 #    needs:
