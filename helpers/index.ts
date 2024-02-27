@@ -1,15 +1,24 @@
 import * as fs from "fs";
-import * as fsPromises from 'fs/promises'
-import * as path from "node:path";
+import {execSync} from "child_process";
+import {promises as fsPromises } from "fs";
 
 export const writeStackNameToFile = (stackName: string) => {
-    const writeStream = fs.createWriteStream('stack-name.txt')
-    writeStream.write(stackName)
-    writeStream.end()
+    fs.writeFile('stack-name.txt', stackName, {}, (err) => {
+        if (err) console.log({err})
+        else console.log('file written successfully')
+    })
+
+
+    const rootLs = execSync(`ls`, {encoding: 'utf-8'})
+    console.log({rootLs})
+    const helpersLs = execSync(`cd src/helpers && ls`, {encoding: 'utf-8'})
+    console.log({helpersLs})
+    const scriptsLs = execSync(`cd scripts && ls`, {encoding: 'utf-8'})
+    console.log({scriptsLs})
 }
 
 export const readStackNameFromFile = async (fileName: string) => {
-    const filePath = path.join(__dirname, fileName)
-    const result = await fsPromises.readFile(filePath)
+    // const filePath = path.join(__dirname, fileName)
+    const result = await fsPromises.readFile(fileName)
     return result.toString()
 }
