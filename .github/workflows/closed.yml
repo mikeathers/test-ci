@@ -53,13 +53,6 @@ jobs:
         run: |
           echo "normalised_branch_name=$(echo "${{ github.event.ref || github.event.pull_request.head.ref }}" | sed -e 's/refs\/heads\///g' | tr '[:upper:]' '[:lower:]' | sed -e 's/\//-/g')" >> $GITHUB_ENV
 
-
-
-      - run: echo $normalised-branch-name
-
-
-      - run: echo ${{github.ref_name}}
-
       - run: npx ts-node destroy-stack-on-merge.ts
 
 #  destroy-2:
